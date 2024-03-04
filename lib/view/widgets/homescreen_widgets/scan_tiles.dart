@@ -9,10 +9,12 @@ class ScanView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final stockScans = Provider.of<ScansList>(context).scansList;
+    //displaying the list fetched from api
     return ListView.builder(
         itemCount: stockScans.length,
         itemBuilder: (context, index) => ListTile(
               onTap: () {
+                // navigating to respective detailed view
                 Navigator.pushNamed(
                   context,
                   ScanScreen.routeName,

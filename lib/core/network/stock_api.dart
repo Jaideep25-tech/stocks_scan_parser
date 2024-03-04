@@ -3,6 +3,8 @@ import 'package:http/http.dart' as http;
 
 var url = Uri.parse('http://coding-assignment.bombayrunning.com/data.json');
 
+// api get using http package for fetching data
+
 Future<dynamic> getData() async {
   var response = await http.get(url);
   if (response.statusCode == 200) {

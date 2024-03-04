@@ -11,6 +11,7 @@ class ScansList with ChangeNotifier {
   late String? selectedVariableParamName;
   late int? selectedVariableDefaultVal;
 
+  // caling the api get function and initializing the data
   Future<dynamic> init() async {
     scansList.clear();
     final dynamic data = await getData() as dynamic;
@@ -31,6 +32,7 @@ class ScansList with ChangeNotifier {
     }
   }
 
+// managing the state for switching state between subcriteria and criteria
   void switchList() {
     viewSubCriteria = !viewSubCriteria;
     notifyListeners();

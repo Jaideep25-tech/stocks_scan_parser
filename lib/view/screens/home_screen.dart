@@ -14,17 +14,22 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
+      // fututre building calling the function to initialize the list with response fetched
+      // Using future builder to effectively manage the calling of api and rendering UI accordingly
       body: FutureBuilder(
           future: Provider.of<ScansList>(context, listen: false).init(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               if (snapshot.data == 'success') {
+                // if data is successfully fetched showing scan result UI
+                // else displaying text message
                 return const ScanView();
               } else {
                 return const Center(
                   child: Text('Something went wrong!'),
                 );
               }
+              // while the response is being fetched displayong circular progress indicator
             } else {
               return const Center(child: CircularProgressIndicator());
             }

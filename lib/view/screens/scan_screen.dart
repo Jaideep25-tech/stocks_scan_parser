@@ -11,12 +11,15 @@ class ScanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // getting the index for getting color of subtext for further sub category
     final int scanIndex = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       appBar: ScanAppBar(
         scanIndex: scanIndex,
+        // using this value for managing pop navigation
         callBAck: Provider.of<ScansList>(context).viewSubCriteria,
       ),
+      //using this to decide whether show subcriteria or criteria
       body: Provider.of<ScansList>(context).viewSubCriteria
           ? const SubCriteriaView()
           : CriteriaView(

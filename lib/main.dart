@@ -6,6 +6,7 @@ import 'view/screens/home_screen.dart';
 
 void main() {
   runApp(
+    //Starting the app and initiliaazing the same for managing state using provider
     ChangeNotifierProvider(
       create: (_) => ScansList(),
       child: const StockScanParser(),
@@ -24,7 +25,7 @@ class StockScanParser extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const HomeScreen(title: 'Stock Scans'),
+      home: const HomeScreen(title: 'Stocks Scan Parser'),
       routes: {
         ScanScreen.routeName: (context) => const ScanScreen(),
       },
